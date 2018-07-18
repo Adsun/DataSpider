@@ -7,12 +7,12 @@ import org.apache.commons.logging.LogFactory;
 import com.adsun.spider.core.HtmlPage;
 import com.adsun.spider.core.Spider;
 import com.adsun.spider.dao.DBHelper;
+import com.adsun.spider.interfa.PageHandler;
 
 
-public class WishPageHandler implements PageHandler{
+public class WishPageHandler extends PageHandler{
 	private static Log log = LogFactory.getLog(WishPageHandler.class);
 	private static String keywords = "";
-//	private static DBHelper dao = DBHelper.getInstance();
 	public void handler(HtmlPage page) {
 		System.out.println(page.getContext().asXML());
 	}

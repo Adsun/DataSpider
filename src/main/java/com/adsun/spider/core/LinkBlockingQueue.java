@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
+import com.adsun.spider.interfa.LinkStorage;
+
 public class LinkBlockingQueue implements LinkStorage{
 	private final static BlockingQueue<String> queue = new ArrayBlockingQueue<String>(100000);
 	private final static List<String> list = new ArrayList<String>();

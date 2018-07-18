@@ -29,8 +29,11 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 import org.apache.http.util.EntityUtils;
 
-import com.adsun.spider.handler.PageHandler;
+import com.adsun.spider.interfa.LinkStorage;
+import com.adsun.spider.interfa.PageHandler;
+import com.adsun.spider.interfa.SpiderMBean;
 import com.adsun.spider.util.SpiderThreadPoolUtil;
+
 
 public class Spider implements SpiderMBean{
 	private static Log log = LogFactory.getLog(Spider.class);
@@ -90,7 +93,9 @@ public class Spider implements SpiderMBean{
 		this.running();
 	}
 	
-	/*ע��MBean��jconsole���Ե���stop()��start()*/
+	/**
+	 * 添加jconsole监控
+	 */
 	private void registerMBean() {
 		MBeanServer mbs = ManagementFactory.getPlatformMBeanServer(); 
         try {
@@ -129,9 +134,8 @@ public class Spider implements SpiderMBean{
 				continue;
 			}
 			if (linkStorage.isEmpty()) {
-//				log.info("linkStorage is null");
 				try {
-					Thread.sleep(20000);
+					Thread.sleep(5000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -147,7 +151,6 @@ public class Spider implements SpiderMBean{
 					try {
 						HttpGet get = new HttpGet(link);
 						response = client.execute(get);
-//						log.info("Request " + get.getURI() + ":" + response.getStatusLine().getStatusCode());
 						HtmlPage page = new HtmlPage(response, get.getURI(), linkStorage);
 						if (HttpStatus.SC_OK == response.getStatusLine().getStatusCode()) {
 							for (PageHandler pageHandler : handlerList) {

@@ -8,7 +8,7 @@ public class SpiderThreadPoolUtil {
 	private static ThreadPoolExecutor executor = null;
 	private SpiderThreadPoolUtil () {
 	}
-	public static ThreadPoolExecutor getInstance() {
+	public synchronized static ThreadPoolExecutor getInstance() {
 		if (executor == null) {
 			executor = new ThreadPoolExecutor(5, 10, 1000,TimeUnit.MILLISECONDS, 
 					new ArrayBlockingQueue<Runnable>(500), new ThreadPoolExecutor.CallerRunsPolicy());

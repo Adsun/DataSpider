@@ -9,13 +9,13 @@ import java.util.regex.Pattern;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.ParseException;
-import org.apache.http.util.EntityUtils;
 import org.cyberneko.html.parsers.DOMParser;
 import org.dom4j.Document;
 import org.dom4j.io.DOMReader;
 import org.xml.sax.InputSource;
 import org.xml.sax.SAXException;
 
+import com.adsun.spider.interfa.LinkStorage;
 import com.adsun.spider.util.LinkUtil;
 
 public class HtmlPage {
@@ -45,7 +45,6 @@ public class HtmlPage {
 		setLinks(LinkUtil.getLinks(context, host));
 	}
 	
-	/*��������ɸѡ ��Ҫ�ύ�����link*/
 	public void submitLinksByReg(String regEx){
 		for (String link : links) {
 			if (Pattern.matches(regEx, link)) {

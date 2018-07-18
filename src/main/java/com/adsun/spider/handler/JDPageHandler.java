@@ -9,9 +9,10 @@ import org.dom4j.Node;
 
 import com.adsun.spider.core.HtmlPage;
 import com.adsun.spider.core.Spider;
+import com.adsun.spider.interfa.PageHandler;
 
 
-public class JDPageHandler implements PageHandler{
+public class JDPageHandler extends PageHandler{
 
 	@SuppressWarnings("unchecked")
 	public void handler(HtmlPage page) {

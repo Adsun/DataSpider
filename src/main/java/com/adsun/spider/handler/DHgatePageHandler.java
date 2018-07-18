@@ -16,9 +16,10 @@ import org.json.JSONObject;
 import com.adsun.spider.core.HtmlPage;
 import com.adsun.spider.core.Spider;
 import com.adsun.spider.dao.DBHelper;
+import com.adsun.spider.interfa.PageHandler;
 
 
-public class DHgatePageHandler implements PageHandler{
+public class DHgatePageHandler extends PageHandler{
 	private static Log log = LogFactory.getLog(DHgatePageHandler.class);
 	private static String keywords = "";
 	private static DBHelper dao = DBHelper.getInstance();

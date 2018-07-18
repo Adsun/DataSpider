@@ -1,27 +1,16 @@
 package com.adsun.spider.handler;
 
 
-import java.util.Date;
-import java.util.List;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.dom4j.Element;
-import org.dom4j.Node;
-import org.dom4j.tree.DefaultAttribute;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import com.adsun.spider.core.HtmlPage;
 import com.adsun.spider.core.Spider;
-import com.adsun.spider.dao.DBHelper;
+import com.adsun.spider.interfa.PageHandler;
 
 
-public class AliexpressPageHandler implements PageHandler{
+public class AliexpressPageHandler extends PageHandler{
 	private static Log log = LogFactory.getLog(AliexpressPageHandler.class);
 	private static String keywords = "";
-//	private static DBHelper dao = DBHelper.getInstance();
 	public void handler(HtmlPage page) {
 		System.out.println(page.getContext().asXML());
 	}
